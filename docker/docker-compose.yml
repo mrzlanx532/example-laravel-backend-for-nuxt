@@ -56,6 +56,7 @@ services:
     depends_on:
       - mysql
       - redis
+
   php-worker:
     build:
       context: .
@@ -72,6 +73,7 @@ services:
     depends_on:
       - mysql
       - redis
+
   redis:
     image: redis
     container_name: redis
