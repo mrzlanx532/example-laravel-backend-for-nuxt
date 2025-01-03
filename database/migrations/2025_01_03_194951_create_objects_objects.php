@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pencils', function (Blueprint $table) {
+        Schema::create('objects_objects', function (Blueprint $table) {
             $table->id();
             $table->boolean('example_checkbox')->nullable();
             $table->date('example_date')->nullable();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pencils');
+        Schema::dropIfExists('objects_objects');
     }
 };

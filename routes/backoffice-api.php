@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backoffice\ManagerController;
+use App\Http\Controllers\Backoffice\ObjectController;
 use App\Http\Controllers\Backoffice\UserController;
 use App\Http\Controllers\CommonController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,13 @@ Route::get('common/definitions', [CommonController::class, 'getAvailableDefiniti
 Route::post('managers/self/auth', [ManagerController::class, 'auth']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    Route::get('objects/browse', [ObjectController::class, 'browse']);
+    Route::get('objects/detail', [ObjectController::class, 'detail']);
+    Route::get('objects/form', [ObjectController::class, 'form']);
+    Route::post('objects/create', [ObjectController::class, 'create']);
+    Route::post('objects/update', [ObjectController::class, 'update']);
+    Route::post('objects/delete', [ObjectController::class, 'delete']);
 
     Route::get('managers/browse', [ManagerController::class, 'browse']);
     Route::get('managers/detail', [ManagerController::class, 'detail']);
@@ -30,8 +38,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('users/password-reset', [UserController::class, 'passwordReset']);
     Route::post('users/disable', [UserController::class, 'disable']);
     Route::post('users/enable', [UserController::class, 'enable']);
-    Route::get('users/downloaded-content-get-xlsx', [UserController::class, 'downloadedContentGenerateXLSX']);
-    Route::get('users/reports/browse', [UserController::class, 'usersReportsBrowse']);
-    Route::get('users/reports/detail', [UserController::class, 'usersReportsDetail']);
-    Route::post('users/reports/delete', [UserController::class, 'usersReportsDelete']);
 });
