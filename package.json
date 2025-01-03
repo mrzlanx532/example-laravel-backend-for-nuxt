@@ -1,0 +1,12 @@
+{
+    "private": true,
+    "scripts": {
+        "echo:stage": "pm2 start ecosystem.config.js --only LSM_ECHO:STAGE --update-env",
+        "echo:prod": "pm2 start ecosystem.config.js --only LSM_ECHO:PROD --update-env"
+    },
+    "dependencies": {
+        "dotenv": "11.0.0",
+        "laravel-echo-server": "1.6.2"
+    },
+    "devDependencies": {}
+}

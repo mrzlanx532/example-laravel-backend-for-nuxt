@@ -1,0 +1,11 @@
+.idea
+.env
+vendor
+docker/.env
+public/docs
+public/storage
+public/private
+storage/app/uploaded/*
+!storage/app/uploaded/.gitkeep
+.scribe
+node_modules
